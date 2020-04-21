@@ -1,20 +1,16 @@
 import React from 'react';
-import { Grid, TextField, Button } from '@material-ui/core';
-import './Toolbar.css';
+import { Container, TextField, Button, FormControl, FormGroup } from '@material-ui/core';
 
-class Toolbar extends React.Component {
-
-    render() {
-        return (
-            <Grid container justify={'center'} align={'center'}>
-                <Grid item sm={6}>
-                    <TextField fullWidth label="Add a New Exercise" onChange={this.props.handleChange} value={this.props.newExercise}></TextField>
-                </Grid>
-                <Grid item sm={6}>
-                    <Button onClick={this.props.addNewExercise}>Add Exercise</Button>
-                    </Grid>
-            </Grid>
-        )
-    }
+const Toolbar = (props) => {
+    return (
+        <Container container justify={'center'} align={'center'} >
+            <FormControl>
+                <FormGroup children row>
+                    <TextField label="Add a New Exercise" onChange={props.handleChange} value={props.newExercise}></TextField>
+                    <Button onClick={props.addNewExercise}>Add Exercise</Button>
+                </FormGroup>
+            </FormControl>
+        </Container>
+    )
 }
 export default Toolbar;

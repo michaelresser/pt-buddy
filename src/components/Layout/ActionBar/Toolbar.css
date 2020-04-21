@@ -1,7 +1,0 @@
-.toolbar{
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px black solid;
-}
