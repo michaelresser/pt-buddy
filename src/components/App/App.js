@@ -2,12 +2,11 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 // Components
-import { Header, ActionBar, Exercises } from '../../components/index.js';
+import { Header, ViewPanel, ViewToggle, Exercises } from '../../components/index.js';
 // Material UI
 import { Container } from "@material-ui/core";
-// Local Data
-import { muscles, exercises } from '../../dataStore';
-
+// Context
+import AppContext, { AppState } from "../context/context";
 
 
 
@@ -15,31 +14,38 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      muscles: muscles,
-      exercises: exercises,
+      methods: AppState.methods,
+      exercises: AppState.exercises,
       newExercise: {
         id: uuid(),
         name: ''
-       },
-      currentExercise: {}
+      },
+      currentExercise: AppState.exercises[0] ,
+      currentView: <Exercises />,
+      selectExercise: this.selectExercise
+
     }
   }
-  // CRUD methods
+
+
+  /* SELECT METHODS */
   selectExercise = (selection) => {
     this.setState({
       currentExercise: this.state.exercises.find((item) => {
         return item.id === selection.id;
-      })
+      },
+      () => console.log(this.currentExercise))
     });
-  }
-  addExercise = () => {
-    /* if error handling logic === false */
+  };
+  /* CREATE METHODS */
+  createExercise = () => {
     this.setState({
       exercises: [...this.state.exercises, this.state.newExercise]
     },
       () => console.log(this.state.exercises)
     );
-  }
+  };
+  /* HANDLE METHODS */
   handleChange = (e) => {
     this.setState({
       newExercise: {
@@ -47,10 +53,11 @@ class App extends React.Component {
         name: e.target.value
       }
     },
-      ()=> {console.log(this.state.newExercise)}
+      () => { console.log(this.state.newExercise) }
     );
-  }
-  deleteExercise = (selection) => { 
+  };
+  /* DELETE METHODS */
+  deleteExercise = (selection) => {
     this.setState({
       exercises: this.state.exercises.filter(item => {
         if (item.id !== selection) {
@@ -62,31 +69,44 @@ class App extends React.Component {
     },
       () => console.log(this.state.exercises)
     );
+  };
+  /* VIEW METHODS */
+  changeView = (e) => {
+    const index = parseInt(e.currentTarget.getAttribute("index"));
+    switch (index) {
+      case 0:
+        this.setState({
+          currentView: <Exercises />
+        });
+        break;
+      case 1:
+        this.setState({
+          currentView: "<Workouts />"
+        });
+        break;
+      case 2:
+        this.setState({
+          currentView: "Programs"
+        });
+        break;
+      default:
+        this.setState({
+          currentView: <Exercises />
+        });
+    };
+  };
+    render() {
+      return (
+        <AppContext.Provider value={this.state}>
+          <Header />
+          <Container>
+            <ViewPanel />
+          </Container>
+          <ViewToggle />
+        </AppContext.Provider>
+      )
+    }
   }
-  // editExercise = () => {};
-
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <Container>
-          <ActionBar
-            addNewExercise={this.addExercise}
-            handleChange={this.handleChange} />
-          <Exercises
-            exercises={this.state.exercises}
-            deleteExercise={this.deleteExercise}
-            selectExercise={this.selectExercise}
-            currentExercise={this.state.currentExercise}
-          />
-        </Container>
-
-      </div>
-    );
-  }
-
-}
 
 
 export default App;

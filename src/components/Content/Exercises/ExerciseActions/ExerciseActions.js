@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, TextField, Button, FormControl, FormGroup } from '@material-ui/core';
 
-const Toolbar = (props) => {
+const ExerciseActions = (props) => {
     return (
-        <Container container justify={'center'} align={'center'} >
+        <Container justify={'center'} align={'center'} >
             <FormControl>
                 <FormGroup children row>
                     <TextField label="Add a New Exercise" onChange={props.handleChange} value={props.newExercise}></TextField>
@@ -13,4 +13,4 @@ const Toolbar = (props) => {
         </Container>
     )
 }
-export default Toolbar;
+export default ExerciseActions;

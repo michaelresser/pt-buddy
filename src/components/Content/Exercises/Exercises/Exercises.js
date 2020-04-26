@@ -1,17 +1,20 @@
 import React from 'react'
-import { Grid } from '@material-ui/core';
-import { ExerciseList, ExerciseView } from '../../index';
+import { Container, Grid } from '@material-ui/core';
+import { ExerciseActions, ExerciseList, ExerciseView } from '../../../index';
 
 
 
 const Exercises = (props) => {
     return (
+        <Container>
+            <ExerciseActions
+            addNewExercise={props.addExercise}
+            handleChange={props.handleChange} />
         <Grid container>
             <Grid container item xs>
                 <ExerciseList
                     exercises={props.exercises} deleteExercise={props.deleteExercise}
-                    selectExercise={props.selectExercise}
-                />
+                    selectExercise={props.selectExercise} />
             </Grid>
             <Grid container item xs justify='center' alignItems='center'>
                 <ExerciseView
@@ -19,6 +22,8 @@ const Exercises = (props) => {
                     currentExercise={props.currentExercise} />
             </Grid>
         </Grid>
+        </Container>
+        
     )
 }
 
