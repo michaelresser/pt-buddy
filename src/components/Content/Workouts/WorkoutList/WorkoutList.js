@@ -1,19 +1,20 @@
 import React from 'react';
-import { Box, Button, List, ListItem, ListItemText } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Box, /* Button, List, ListItem, ListItemText */ } from '@material-ui/core';
+// import DeleteIcon from '@material-ui/icons/Delete';
 
 
-const ExerciseList = (props) => {
+const WorkoutList = (props) => {
 
-    const handleDeleteExercise = (event, item) => {
+    /* const handleDeleteExercise = (event, item) => {
         event.stopPropagation();
         event.preventDefault();
         props.deleteExercise(item.id);
-    }
+    } */
 
     return (
         <Box>
-            <List>
+            Workout List
+            {/* <List>
                 {props.exercises.map(item => {
                     return (
                         <ListItem button
@@ -35,8 +36,8 @@ const ExerciseList = (props) => {
                         </ListItem>
                     )
                 })}
-            </List>
+            </List> */}
         </Box >
     );
 }
-export default ExerciseList;
+export default WorkoutList;

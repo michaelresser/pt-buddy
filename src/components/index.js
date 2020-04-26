@@ -1,18 +1,30 @@
 import App from './App/App';
-import Toolbar from './Layout/ActionBar/ActionBar';
 import Header from './Layout/Header/Header';
-import ActionBar from './Layout/ActionBar/ActionBar';
-import Exercises from './Layout/Exercises/Exercises';
-import ExerciseList from './Exercises/ExerciseList/ExerciseList';
-import ExerciseView from './Exercises/ExerciseView/ExerciseView';
+import ViewPanel from './Layout/Views/ViewPanel/ViewPanel';
+import ViewToggle from './Layout/Views/ViewToggle/ViewToggle';
 
+import ExerciseActions from './Content/Exercises/ExerciseActions/ExerciseActions';
+import Exercises from './Content/Exercises/Exercises/Exercises';
+import ExerciseList from './Content/Exercises/ExerciseList/ExerciseList';
+import ExerciseView from './Content/Exercises/ExerciseView/ExerciseView';
+
+import WorkoutActions from './Content/Exercises/ExerciseActions/ExerciseActions';
+import Workouts from './Content/Exercises/Exercises/Exercises';
+import WorkoutList from './Content/Exercises/ExerciseList/ExerciseList';
+import WorkoutView from './Content/Exercises/ExerciseView/ExerciseView';
 
 export {
     App,
-    ExerciseList,
-    Toolbar,
     Header,
-    ActionBar,
+    ViewPanel,
+    ViewToggle,
     Exercises,
-    ExerciseView
+    ExerciseList,
+    ExerciseActions,
+    ExerciseView,
+    Workouts,
+    WorkoutActions,
+    WorkoutList,
+    WorkoutView
+
 }
