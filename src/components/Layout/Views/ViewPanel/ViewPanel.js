@@ -1,17 +1,18 @@
 import React from 'react';
 
-
+// Material-ui Components
+import { Container } from '@material-ui/core';
 import AppContext from '../../../context/context';
 
 const ViewPanel = () => {
     return (
-        <div>
+        <Container>
             <AppContext.Consumer>
                 {value =>
                     value.currentView
                 }
             </AppContext.Consumer>
-        </div>
+        </Container>
     )
 }
 
