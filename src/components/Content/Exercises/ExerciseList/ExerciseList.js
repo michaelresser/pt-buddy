@@ -4,33 +4,28 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AppContext from '../../../context/context';
 
 
-const ExerciseList = (props) => {
-    /* handleDelete creted to stop event bubbling through to list item selectExercise method */
-    const handleDeleteExercise = (event, item) => {
-        event.stopPropagation();
-        event.preventDefault();
-        props.deleteExercise(item.id);
-    }
+const ExerciseList = () => {
 
     return (
         <AppContext.Consumer>
-            {context =>
+            {context => (
                 <List>
-                    {context.exercises.map(item => {
+                    {context.exercises.map(exercise => {
                         return (
                             <ListItem button
-                                key={item.id}
+                                key={exercise.id}
                                 onClick={() => {
-                                    context.selectExercise(item);
-                                    
+                                    context.selectExercise(exercise);
                                 }}
                                 alignItems='center'>
                                 <ListItemText
-                                    primary={item.name}>
+                                    primary={exercise.name}>
                                 </ListItemText>
                                 <Button children
                                     onClick={(event) => {
-                                        handleDeleteExercise(event, item)
+                                        event.stopPropagation();
+                                        event.preventDefault();
+                                        context.deleteExercise(exercise);
                                     }}
                                     color="secondary">
                                     <DeleteIcon />
@@ -39,7 +34,7 @@ const ExerciseList = (props) => {
                         )
                     })}
                 </List>
-            }
+            )}
         </AppContext.Consumer>
     );
 }
