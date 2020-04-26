@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 // Components
 import { Header, ViewPanel, ViewToggle, Exercises } from '../../components/index.js';
 // Material UI
-import { Container } from "@material-ui/core";
+// import {  } from "@material-ui/core";
 // Context
 import AppContext, { AppState } from "../context/context";
 
@@ -20,10 +20,13 @@ class App extends React.Component {
         id: uuid(),
         name: ''
       },
-      currentExercise: AppState.exercises[0] ,
+      currentExercise: AppState.exercises[0],
       currentView: <Exercises />,
-      selectExercise: this.selectExercise
-
+      handleChange: this.handleChange,
+      selectExercise: this.selectExercise,
+      addExercise: this.addExercise,
+      deleteExercise: this.deleteExercise,
+      changeView: this.changeView
     }
   }
 
@@ -34,13 +37,17 @@ class App extends React.Component {
       currentExercise: this.state.exercises.find((item) => {
         return item.id === selection.id;
       },
-      () => console.log(this.currentExercise))
+        () => console.log(this.currentExercise))
     });
   };
   /* CREATE METHODS */
-  createExercise = () => {
+  addExercise = () => {
     this.setState({
-      exercises: [...this.state.exercises, this.state.newExercise]
+      exercises: [...this.state.exercises, this.state.newExercise],
+      newExercise:{
+        id: uuid(),
+        name: ''
+      }
     },
       () => console.log(this.state.exercises)
     );
@@ -59,9 +66,9 @@ class App extends React.Component {
   /* DELETE METHODS */
   deleteExercise = (selection) => {
     this.setState({
-      exercises: this.state.exercises.filter(item => {
-        if (item.id !== selection) {
-          return item;
+      exercises: this.state.exercises.filter(exercise => {
+        if (exercise.id !== selection.id) {
+          return exercise;
         } else {
           return null
         }
@@ -95,18 +102,16 @@ class App extends React.Component {
         });
     };
   };
-    render() {
-      return (
-        <AppContext.Provider value={this.state}>
-          <Header />
-          <Container>
-            <ViewPanel />
-          </Container>
-          <ViewToggle />
-        </AppContext.Provider>
-      )
-    }
+  render() {
+    return (
+      <AppContext.Provider value={this.state}>
+        <Header />
+        <ViewPanel />
+        <ViewToggle />
+      </AppContext.Provider>
+    )
   }
+}
 
 
 export default App;
