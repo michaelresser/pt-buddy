@@ -27,9 +27,10 @@ const Header = () => {
                     </IconButton>
                     <Typography variant='h6' color='inherit'
                         className={classes.title}>
-                        Exercise Database
+                        PT Buddy | &copy; Mike Esser, 2019
                     </Typography>
                     <Button color='inherit'>Login</Button>
+                    <Button href='https://github.com/michaelresser/pt-buddy' target='_blank' color='inherit'>GitHub</Button>
                 </Toolbar>
             </AppBar>
         </div>
