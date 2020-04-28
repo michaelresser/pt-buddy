@@ -21,7 +21,7 @@ class App extends React.Component {
         name: ''
       },
       currentExercise: AppState.exercises[0],
-      currentView: <Exercises />,
+      currentView: <Exercises/>,
       handleChange: this.handleChange,
       selectExercise: this.selectExercise,
       addExercise: this.addExercise,
@@ -44,7 +44,7 @@ class App extends React.Component {
   addExercise = () => {
     this.setState({
       exercises: [...this.state.exercises, this.state.newExercise],
-      newExercise:{
+      newExercise: {
         id: uuid(),
         name: ''
       }
@@ -80,34 +80,39 @@ class App extends React.Component {
   /* VIEW METHODS */
   changeView = (e) => {
     const index = parseInt(e.currentTarget.getAttribute("index"));
+    console.log(index, typeof index);
     switch (index) {
       case 0:
+        console.log(0);
         this.setState({
           currentView: <Exercises />
         });
         break;
       case 1:
+        console.log(1);
         this.setState({
           currentView: "<Workouts />"
         });
         break;
       case 2:
+        console.log(2);
         this.setState({
-          currentView: "Programs"
+          currentView: "<Programs/>"
         });
         break;
       default:
         this.setState({
           currentView: <Exercises />
         });
-    };
+    }    
   };
-  render() {
+  
+  render() { 
     return (
       <AppContext.Provider value={this.state}>
         <Header />
-        <ViewPanel />
         <ViewToggle />
+        <ViewPanel />
       </AppContext.Provider>
     )
   }

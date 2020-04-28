@@ -1,23 +1,45 @@
-import React from 'react';
+import React, {useState }from 'react';
 import { Paper, Tabs, Tab } from "@material-ui/core";
-
+import AppContext from '../../../context/context';
 
 
 function ViewToggle(props) {
+    const [value,setValue] = useState(0);
     const tabs = {
-        children: ["Exercises", "Workouts", "Projects"],
+        children: ["Exercises", "Workouts", "Programs"],
     };
 
+
     return (
-        <Paper>
-            <Tabs variant='fullWidth' value={0} indicatorColor="primary" textColor="primary" centered>
-                {tabs.children.map((item, index) => {
-                    return (
-                        <Tab key={item} index={index} label={item} onClick={(e) => { props.changeView(e) }} />
-                    )
-                })}
-            </Tabs>
-        </Paper >)
+        <AppContext.Consumer>
+            {context => (
+                <Paper >
+                    <Tabs
+                        centered
+                        variant='fullWidth'
+                        value={value}
+                        indicatorColor="primary"
+                        textColor="primary"
+                    >
+                        {tabs.children.map((viewName, index) => {
+                            return (
+                                <Tab
+                                    key={viewName}
+                                    label={viewName}
+                                    index={parseInt(index)}
+                                    onClick={(e) => {
+                                        setValue(index);
+                                        context.changeView(e);                                                                                                                   
+                                    }}
+                                />
+                            )
+                        })}
+                    </Tabs>
+                </Paper>
+            )
+            }
+        </AppContext.Consumer >
+    )
 }
 
 export default ViewToggle;
