@@ -2,7 +2,7 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 // Components
-import { Header, ViewPanel, ViewToggle, Exercises } from '../../components/index.js';
+import { Header, ViewPanel, ViewToggle, Exercises, Footer } from '../../components/index.js';
 // Material UI
 // import {  } from "@material-ui/core";
 // Context
@@ -113,6 +113,7 @@ class App extends React.Component {
         <Header />
         <ViewToggle />
         <ViewPanel />
+        <Footer/>
       </AppContext.Provider>
     )
   }

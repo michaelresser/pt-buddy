@@ -1,7 +1,9 @@
 import App from './App/App';
 import Header from './Layout/Header/Header';
+import Footer from './Layout/Footer/Footer';
 import ViewPanel from './Layout/Views/ViewPanel/ViewPanel';
 import ViewToggle from './Layout/Views/ViewToggle/ViewToggle';
+
 
 import ExerciseActions from './Content/Exercises/ExerciseActions/ExerciseActions';
 import Exercises from './Content/Exercises/Exercises/Exercises';
@@ -25,6 +27,7 @@ export {
     Workouts,
     WorkoutActions,
     WorkoutList,
-    WorkoutView
+    WorkoutView,
+    Footer
 
 }
