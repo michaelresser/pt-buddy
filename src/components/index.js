@@ -7,8 +7,9 @@ import ViewToggle from './Layout/Views/ViewToggle/ViewToggle';
 
 import ExerciseActions from './Content/Exercises/ExerciseActions/ExerciseActions';
 import Exercises from './Content/Exercises/Exercises/Exercises';
+import ExerciseItem from './Content/Exercises/ExerciseItem/ExerciseItem';
 import ExerciseList from './Content/Exercises/ExerciseList/ExerciseList';
-import ExerciseView from './Content/Exercises/ExerciseView/ExerciseView';
+
 
 import WorkoutActions from './Content/Exercises/ExerciseActions/ExerciseActions';
 import Workouts from './Content/Exercises/Exercises/Exercises';
@@ -21,9 +22,9 @@ export {
     ViewPanel,
     ViewToggle,
     Exercises,
+    ExerciseItem,
     ExerciseList,
     ExerciseActions,
-    ExerciseView,
     Workouts,
     WorkoutActions,
     WorkoutList,
