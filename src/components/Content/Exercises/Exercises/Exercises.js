@@ -1,28 +1,18 @@
 import React from 'react'
-import { Container, Grid } from '@material-ui/core';
-import { ExerciseActions, ExerciseList, ExerciseView } from '../../../index';
-import AppContext from '../../../context/context';
+import { Container } from '@material-ui/core';
+import { ExerciseActions, ExerciseList} from '../../../index';
 
 
-const Exercises = (props) => {
+
+const Exercises = () => {
     return (
-        <AppContext.Consumer>
-            {context => (
-                <Container>
-                <ExerciseActions />
-                <Grid container>
-                    <Grid container item sm={6}>
-                        <ExerciseList />
-                    </Grid>
-                    <Grid container item sm={6} justify='center' alignItems='center'>
-                        <ExerciseView />
-                    </Grid>
-                </Grid>
-            </Container>
-            )}
-        </AppContext.Consumer>
-
+        <Container>
+            <ExerciseActions />
+            <ExerciseList />
+        </Container>
     )
 }
+        
+
 
 export default Exercises;
