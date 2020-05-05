@@ -1,6 +1,6 @@
 import React, {useState }from 'react';
 import { Paper, Tabs, Tab } from "@material-ui/core";
-import AppContext from '../../../context/context';
+import AppContext from '../../../Context/Context';
 
 
 function ViewToggle(props) {

@@ -1,18 +1,14 @@
 import React from 'react';
-import AppContext from '../../../context/context';
+import AppContext from '../../../Context/Context';
 // Material-ui Components
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import backgroundImage from '../../../../assets/images/garrett-butler-gym-words.jpg';
+/* import backgroundImage from '../../../../assets/images/garrett-butler-gym-words.jpg'; */
 
 
 const useStyles = makeStyles({
     root: {
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-        width: '100vw'
+     
     }
 });
 
@@ -21,7 +17,7 @@ const useStyles = makeStyles({
 const ViewPanel = () => {
     const classes = useStyles();
     return (
-        <div /* className={classes.root} */>
+        <div className={classes.root}>
             <Container >
                 <AppContext.Consumer>
                     {value =>

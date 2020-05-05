@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Typography, Divider, ExpansionPanel, ExpansionPanelActions, ExpansionPanelDetails, ExpansionPanelSummary } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import AppContext from '../../../context/context';
+import AppContext from '../../../Context/Context';
 
 const ExerciseIten = (props) => {
     return (
