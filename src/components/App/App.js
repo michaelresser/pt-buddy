@@ -6,7 +6,8 @@ import { Header, ViewPanel, ViewToggle, Exercises, Footer } from '../../componen
 // Material UI
 // import {  } from "@material-ui/core";
 // Context
-import AppContext, { AppState } from "../Context/context";
+import AppContext, { AppState } from "../context/context";
+
 
 
 
