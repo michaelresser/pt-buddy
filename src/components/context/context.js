@@ -75,7 +75,7 @@ export const AppState = {
 };
 const AppContext = React.createContext({});
 
-export default AppContext;
+export default  AppContext;
 
 
 

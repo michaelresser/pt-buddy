@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../../../Context/Context';
+import AppContext from '../../../Context/context';
 // Material-ui Components
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';

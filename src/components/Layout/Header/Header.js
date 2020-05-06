@@ -6,7 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import AppContext from '../../Context/Context';
+import AppContext from '../../Context/context';
 
 
 
