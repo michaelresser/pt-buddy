@@ -1,12 +1,12 @@
 import React from 'react';
+import {AppContext } from '../../index';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Button, Divider, Drawer, Hidden, InputBase, IconButton, List, ListItem, ListItemText, Menu, Toolbar } from '@material-ui/core';
-
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import AppContext from '../../Context/context';
+
 
 
 

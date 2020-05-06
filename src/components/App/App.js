@@ -2,12 +2,9 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 // Components
-import { Header, ViewPanel, ViewToggle, Exercises, Footer } from '../../components/index.js';
+import { AppContext, AppState, Header, ViewPanel, ViewToggle, Exercises, Footer } from '../../components/index.js';
 // Material UI
 // import {  } from "@material-ui/core";
-// Context
-import AppContext, { AppState } from "../context/context";
-
 
 
 

@@ -16,8 +16,12 @@ import Workouts from './Content/Exercises/Exercises/Exercises';
 import WorkoutList from './Content/Exercises/ExerciseList/ExerciseList';
 import WorkoutView from './Content/Exercises/ExerciseView/ExerciseView';
 
+import {AppContext, AppState} from './Context/Context';
+
 export {
     App,
+    AppContext, 
+    AppState,
     Header,
     ViewPanel,
     ViewToggle,
@@ -30,5 +34,4 @@ export {
     WorkoutList,
     WorkoutView,
     Footer
-
 }

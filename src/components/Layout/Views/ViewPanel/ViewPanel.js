@@ -1,9 +1,9 @@
 import React from 'react';
-import AppContext from '../../../Context/context';
-// Material-ui Components
+import {AppContext} from '../../../index';
+
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-/* import backgroundImage from '../../../../assets/images/garrett-butler-gym-words.jpg'; */
+
 
 
 const useStyles = makeStyles({

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, TextField, Button, FormControl, FormGroup } from '@material-ui/core';
-import AppContext from '../../../Context/context';
+import {AppContext} from '../../../index';
 
 
 const ExerciseActions = () => (
