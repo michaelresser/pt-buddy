@@ -70,7 +70,6 @@ const Header = () => {
     const toggleDrawer = () => (
         setNavOpen(!navOpen)
     );
-
     const handleMobileMoreMenu = () => {
         setMobileMoreMenuState(!mobileMoreMenuState);
     };
@@ -102,7 +101,7 @@ const Header = () => {
                                     inputProps={{ 'aria-label': 'search' }}
                                 />
                             </div>
-                            <div className={classes.grow}/>                            
+                            <div className={classes.grow} />
                             <Box>
                                 <Hidden xsDown>
                                     <IconButton
@@ -125,6 +124,7 @@ const Header = () => {
                             </Box>
                         </Toolbar>
                     </AppBar>
+                    {/* Menu Drawer */}
                     <Drawer open={navOpen} onClose={toggleDrawer}>
                         <ListItem button onClick={context.changeView}>
                             <ListItemText primary={'Home'} />
@@ -133,7 +133,12 @@ const Header = () => {
                         <List>
                             {["Exercises", 'Workouts', 'Training Plans'].map((item, index) => (
                                 <ListItem button key={item} index={index} onClick={(key) => console.log(item)}>
-                                    <ListItemText primary={item} />
+                                    <ListItemText
+                                        primary={item}
+                                        index={parseInt(index)}
+                                        onClick={(e) => {
+                                            context.changeView(e);
+                                        }} />
                                 </ListItem>
                             ))}
                         </List>

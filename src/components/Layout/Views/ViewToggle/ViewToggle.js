@@ -1,19 +1,25 @@
-import React, {useState }from 'react';
-import { Paper, Tabs, Tab } from "@material-ui/core";
+import React, { useState } from 'react';
+import { Container, Tabs, Tab} from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 import AppContext from '../../../Context/Context';
 
+const useStyles = makeStyles({
+    root: {
+        minWidth: 'auto'
+    }
+});
 
 function ViewToggle(props) {
-    const [value,setValue] = useState(0);
-    const tabs = {
-        children: ["Exercises", "Workouts", "Programs"],
-    };
+    const [value, setValue] = useState(0);
+    const tabs = ["All", "Muscles", "Gear", "Focus", "Level", "Position"];
+    const classes = useStyles();
+
 
 
     return (
         <AppContext.Consumer>
             {context => (
-                <Paper >
+                <Container>
                     <Tabs
                         centered
                         variant='fullWidth'
@@ -21,24 +27,23 @@ function ViewToggle(props) {
                         indicatorColor="primary"
                         textColor="primary"
                     >
-                        {tabs.children.map((viewName, index) => {
+                        {tabs.map((viewName, index) => {
                             return (
-                                <Tab
+                                <Tab className={classes.root}
                                     key={viewName}
                                     label={viewName}
                                     index={parseInt(index)}
                                     onClick={(e) => {
                                         setValue(index);
-                                        context.changeView(e);                                                                                                                   
+                                        context.changeView(e);
                                     }}
                                 />
                             )
                         })}
                     </Tabs>
-                </Paper>
-            )
-            }
-        </AppContext.Consumer >
+                </Container>
+            )}
+        </AppContext.Consumer>
     )
 }
 
