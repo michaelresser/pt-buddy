@@ -1,27 +1,28 @@
 import React from 'react';
-import {Button, Typography, Divider, ExpansionPanel, ExpansionPanelActions, ExpansionPanelDetails, ExpansionPanelSummary } from '@material-ui/core';
+import { Button, Box, Chip, Typography, Divider, ExpansionPanel, ExpansionPanelActions, ExpansionPanelDetails, ExpansionPanelSummary } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import AppContext from '../../../Context/Context';
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import AppContext from '../../../Context/context';
 
 const ExerciseIten = (props) => {
     return (
         <AppContext.Consumer>
             {context => (
-                <ExpansionPanel>             
+                <ExpansionPanel>
                     <ExpansionPanelSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1c-content"
-                        id="panel1c-header"
-                    >
-                        <Typography>
-                            {props.exercise.name}
-                        </Typography>
+                        id="panel1c-header">
+                        <Typography>{props.exercise.name}</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
-                        <Typography variant='h5' gutterBottom>
-                            {props.exercise.name}
-                        </Typography>
+                        <Box display='flex' alignItems={'center'}>
+                            <AccessibilityNewIcon style={{ fontSize: 24, marginRight: '.5em'  }} />
+                            {props.exercise.muscles.map(item => (
+                                <Chip label={item} size='small' style={{marginRight: '.5em'}}/>
+                            ))}
+                        </Box>
                     </ExpansionPanelDetails>
                     <Divider />
                     <ExpansionPanelActions>

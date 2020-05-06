@@ -10,6 +10,7 @@ import AppContext, { AppState } from "../context/context";
 
 
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +27,8 @@ class App extends React.Component {
       selectExercise: this.selectExercise,
       addExercise: this.addExercise,
       deleteExercise: this.deleteExercise,
-      changeView: this.changeView
+      changeView: this.changeView,
+      filterExercisesBy: this.filterExercisesBy
     }
   }
 
@@ -52,6 +54,7 @@ class App extends React.Component {
       () => console.log(this.state.exercises)
     );
   };
+
   /* HANDLE METHODS */
   handleChange = (e) => {
     this.setState({
@@ -63,6 +66,7 @@ class App extends React.Component {
       () => { console.log(this.state.newExercise) }
     );
   };
+
   /* DELETE METHODS */
   deleteExercise = (selection) => {
     this.setState({
@@ -77,6 +81,13 @@ class App extends React.Component {
       () => console.log(this.state.exercises)
     );
   };
+  /* FILTER EXERCISES by Categories */
+  filterExercisesBy = (arg) => {
+    console.log (arg)
+  }
+
+
+
   /* VIEW METHODS */
   changeView = (e) => {
     const index = parseInt(e.currentTarget.getAttribute("index"));

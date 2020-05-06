@@ -1,6 +1,6 @@
 import React from 'react';
 import { List } from '@material-ui/core';
-import AppContext from '../../../Context/Context';
+import AppContext from '../../../Context/context';
 import {ExerciseItem} from '../../../index';
 
 
@@ -10,11 +10,11 @@ const ExerciseList = () => {
         <AppContext.Consumer>
             {context => (
                 <List>
-                    {context.exercises.map(exercise => {
+                    {context.exercises.map(item => {
                         return (
                             <ExerciseItem
-                                key={exercise.name}
-                                exercise={exercise}
+                                key={item.id}
+                                exercise={item}
                             />
                         )
                     })}

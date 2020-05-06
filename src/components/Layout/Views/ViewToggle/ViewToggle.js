@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Tabs, Tab} from "@material-ui/core";
+import { Container, Tabs, Tab } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import AppContext from '../../../Context/Context';
+import AppContext from '../../../Context/context';
 
 const useStyles = makeStyles({
     root: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
 
 function ViewToggle(props) {
     const [value, setValue] = useState(0);
-    const tabs = ["All", "Muscles", "Gear", "Focus", "Level", "Position"];
+    const tabs = ["All", "Muscles", "Gear", "Categories", "Level", "Position"];
     const classes = useStyles();
 
 
@@ -27,15 +27,15 @@ function ViewToggle(props) {
                         indicatorColor="primary"
                         textColor="primary"
                     >
-                        {tabs.map((viewName, index) => {
+                        {tabs.map((item, index) => {
                             return (
                                 <Tab className={classes.root}
-                                    key={viewName}
-                                    label={viewName}
+                                    key={item}
+                                    label={item}
                                     index={parseInt(index)}
                                     onClick={(e) => {
                                         setValue(index);
-                                        context.changeView(e);
+                                        context.filterExercisesBy(value)
                                     }}
                                 />
                             )
