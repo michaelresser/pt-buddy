@@ -75,7 +75,7 @@ const Header = () => {
     };
 
     return (
-        <AppContext>
+        <AppContext.Consumer>
             {context => (
                 <div className={classes.root}>
                     <AppBar position="static">
@@ -145,7 +145,7 @@ const Header = () => {
                     </Drawer>
                 </div>
             )}
-        </AppContext>
+        </AppContext.Consumer>
 
     )
 

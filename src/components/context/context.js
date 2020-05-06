@@ -9,17 +9,29 @@ export const AppState = {
         {
             id: uuid(),
             name: 'Narrow Pushup',
-            muscles: ''
+            muscles: ['Triceps', 'Chest', 'Core'],
+            Gear: "Body",
+            Categories: ['Endurance', 'Core', 'Total Body'],
+            Level: 'Intermediate',
+            Position: 'Prone'
         },
         {
             id: uuid(),
-            name: "Alternating One-Arm Kettlebell Swing",
-            muscles: ''
+            name: 'Alternating 1-Arm KettleBell Swings',
+            muscles: ['Shoulders', 'Back', 'Core', 'Hips'],
+            Gear: "Kettlebell",
+            Categories: ['Power Endurance', 'Total Body'],
+            Level: 'Advanced',
+            Position: 'Standing'
         },
         {
             id: uuid(),
-            name: "Supine Lateral Leg Raises",
-            muscles: ''
+            name: 'Sandbag Front Squat (Bearhug Hold)',
+            muscles: ['Biceps', 'UpperBack', 'Hips', 'Legs' ],
+            Gear: "Sandbag",
+            Categories: ['Endurance', 'Total Body'],
+            Level: 'Intermediate',
+            Position: 'Standing'
         }
     ],
     workouts: [
