@@ -9,21 +9,19 @@ const useStyles = makeStyles({
     }
 });
 
-function ViewToggle(props) {
-    const [value, setValue] = useState(0);
-    const tabs = ["All", "Muscles", "Gear", "Categories", "Level", "Position"];
+const ExerciseTabs = (props) => {
+    const [tabsValue, setTabsValue] = useState(0);
+    const tabs = props.views; 
     const classes = useStyles();
-
-
+ 
 
     return (
         <AppContext.Consumer>
             {context => (
                 <Container>
                     <Tabs
-                        centered
-                        variant='fullWidth'
-                        value={value}
+                        centered                        
+                        value={tabsValue}
                         indicatorColor="primary"
                         textColor="primary"
                     >
@@ -34,8 +32,8 @@ function ViewToggle(props) {
                                     label={item}
                                     index={parseInt(index)}
                                     onClick={(e) => {
-                                        setValue(index);
-                                        context.filterExercisesBy(value)
+                                        setTabsValue(index);
+                                        context.getCurrentExerciseFilter(item);                                                                                                              
                                     }}
                                 />
                             )
@@ -47,4 +45,4 @@ function ViewToggle(props) {
     )
 }
 
-export default ViewToggle;
+export default ExerciseTabs;

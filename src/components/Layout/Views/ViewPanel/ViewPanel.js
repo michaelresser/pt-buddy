@@ -1,31 +1,34 @@
 import React from 'react';
-import {AppContext} from '../../../index';
-
-import { Container } from '@material-ui/core';
+import { AppContext } from '../../../index';
 import { makeStyles } from '@material-ui/styles';
 
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
-     
+        display: 'flex',
+        flexFlow: 'column'
+    }, 
+    drawer: {
+        zIndex: 1009
     }
-});
+}));
 
 
 
 const ViewPanel = () => {
     const classes = useStyles();
+    
     return (
-        <div className={classes.root}>
-            <Container >
-                <AppContext.Consumer>
-                    {value =>
-                        value.currentView
-                    }
-                </AppContext.Consumer>
-            </Container>
-        </div>
+        <AppContext.Consumer>
+            {context => (
+                <div className={classes.root}>                    
+                    {context.currentView} 
+                </div>
+            )}
+        </AppContext.Consumer>
+
+
     )
 }
 
