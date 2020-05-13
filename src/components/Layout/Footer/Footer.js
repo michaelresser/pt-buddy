@@ -5,15 +5,17 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles({
-    footer: {
-        padding: '.5rem 1rem',
+    root: {
+        width: '100%',
         background: '#3f51b5',
+        color: '#fff',
         position: 'fixed',
-        bottom: '0',
+        bottom: 0
+    },
+    footer: {        
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        color: '#fff',
+        alignItems: 'center',        
     }
 });
 
@@ -21,12 +23,12 @@ const useStyles = makeStyles({
 const Footer = () => {
     const classes = useStyles();
     return (
-        <Container className={classes.footer}>
-            
-                <Typography variant="h6" color={'inherit'}>
-                    &copy; Mike Esser, 2019
+        <div className={classes.root}>
+            <Container className={classes.footer}>
+            <Typography variant="h6" color={'inherit'}>
+                &copy; Mike Esser, 2019
                 </Typography>
-            
+
             <Box>
                 <IconButton href='https://github.com/michaelresser/pt-buddy' color={'inherit'} target='_blank' >
                     <GitHubIcon />
@@ -35,8 +37,8 @@ const Footer = () => {
                     <LinkedInIcon />
                 </IconButton>
             </Box>
-
-        </Container>
+            </Container>
+        </div>
     );
 }
 
