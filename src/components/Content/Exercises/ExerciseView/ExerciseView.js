@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import AppContext from '../../../Context/context';
+import {AppContext} from '../../../index'
 
 
 const ExerciseView = () => {

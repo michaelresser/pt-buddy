@@ -3,7 +3,7 @@ import { Button, Box, Chip, Typography, Divider, ExpansionPanel, ExpansionPanelA
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import AppContext from '../../../Context/context';
+import {AppContext} from '../../../index';
 
 const ExerciseIten = (props) => {
     return (

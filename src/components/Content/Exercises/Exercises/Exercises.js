@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Container, Fab, Modal } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
-import { ExerciseList } from '../../../index';
-import AppContext from '../../../Context/context';
+import { AppContext, ExerciseList } from '../../../index';
+
 
 
 const useStyles = makeStyles({

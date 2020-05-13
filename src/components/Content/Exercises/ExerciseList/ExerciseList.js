@@ -1,7 +1,6 @@
 import React from 'react';
 import { List } from '@material-ui/core';
-import AppContext from '../../../Context/context';
-import {ExerciseItem} from '../../../index';
+import { AppContext, ExerciseItem } from '../../../index';
 
 
 const ExerciseList = () => {

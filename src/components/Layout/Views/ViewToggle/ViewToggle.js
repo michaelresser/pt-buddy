@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Tabs, Tab } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import AppContext from '../../../Context/context';
+import {AppContext} from '../../../index';
 
 const useStyles = makeStyles({
     root: {
