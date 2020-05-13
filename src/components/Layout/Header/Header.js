@@ -1,12 +1,11 @@
 import React from 'react';
+import { AppContext } from '../../index';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { AppBar, Box, Button, Divider, Drawer, Hidden, InputBase, IconButton, List, ListItem, ListItemText, Menu, Toolbar } from '@material-ui/core';
-
+import { AppBar, Box, Drawer, Hidden, InputBase, IconButton, List, ListItem, ListItemText, Menu, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import AppContext from '../../Context/context';
 
 
 
@@ -19,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2)
+    },
+    drawer: {
+        width: '250px'
     },
     title: {
         flexGrow: 1
@@ -79,15 +81,16 @@ const Header = () => {
             {context => (
                 <div className={classes.root}>
                     <AppBar position="static">
-                        <Toolbar>
-                            <IconButton
-                                edge='start'
-                                className={classes.menuButton}
-                                color='inherit'
-                                onClick={toggleDrawer}
-                            >
-                                <MenuIcon />
-                            </IconButton>
+                        <Toolbar>                            
+                                <IconButton
+                                    edge='start'
+                                    className={classes.menuButton}
+                                    color='inherit'
+                                    onClick={toggleDrawer}
+                                >
+                                    <MenuIcon />
+                                </IconButton>
+                            
                             <div className={classes.search}>
                                 <div className={classes.searchIcon}>
                                     <SearchIcon />
@@ -123,26 +126,25 @@ const Header = () => {
                                 </Hidden>
                             </Box>
                         </Toolbar>
-                    </AppBar>
-                    {/* Menu Drawer */}
-                    <Drawer open={navOpen} onClose={toggleDrawer}>
-                        <ListItem button onClick={context.changeView}>
-                            <ListItemText primary={'Home'} />
-                        </ListItem>
-                        <Divider />
-                        <List>
-                            {["Exercises", 'Workouts', 'Training Plans'].map((item, index) => (
-                                <ListItem button key={item} index={index} onClick={(key) => console.log(item)}>
-                                    <ListItemText
-                                        primary={item}
-                                        index={parseInt(index)}
-                                        onClick={(e) => {
-                                            context.changeView(e);
-                                        }} />
+                    </AppBar>  
+                    {/* Main Menu */}                  
+                        <Drawer className={classes.drawer} open={navOpen} onClose={toggleDrawer}>
+                            <List>
+                                <ListItem button onClick={context.changeView}>
+                                    <ListItemText primary={'Home'} />
                                 </ListItem>
-                            ))}
-                        </List>
-                    </Drawer>
+                                {["Exercises", 'Workouts', 'Training Plans'].map((item, index) => (
+                                    <ListItem button key={item} index={index} onClick={(key) => console.log(item)}>
+                                        <ListItemText
+                                            primary={item}
+                                            index={parseInt(index)}
+                                            onClick={(e) => {
+                                                context.changeMainView(e);
+                                            }} />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Drawer>
                 </div>
             )}
         </AppContext.Consumer>

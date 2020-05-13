@@ -73,9 +73,15 @@ export const AppState = {
         },
     ]
 };
+<<<<<<< HEAD
+const AppContext = React.createContext({});
+
+export default  AppContext;
+=======
 export const AppContext = React.createContext({});
 
 
+>>>>>>> dev-MenuDrawer
 
 
 
