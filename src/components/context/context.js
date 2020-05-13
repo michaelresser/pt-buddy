@@ -73,8 +73,15 @@ export const AppState = {
         },
     ]
 };
+<<<<<<< HEAD
 export const AppContext = React.createContext({});
 
+=======
+
+const AppContext = React.createContext({});
+
+export default  AppContext;
+>>>>>>> refs/remotes/origin/dev
 
 
 
