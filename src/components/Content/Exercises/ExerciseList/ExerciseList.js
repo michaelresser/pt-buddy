@@ -1,20 +1,15 @@
 import React from 'react';
 import { List } from '@material-ui/core';
-import { AppContext, ExerciseItem } from '../../../index';
-import { makeStyles } from '@material-ui/styles';
+import AppContext from '../../../Context/Context';
+import {ExerciseItem} from '../../../index';
 
-const useStyles = makeStyles({
-    root: {
-        width: '90vw'
-    },
-});
 
-const ExerciseList = (props) => {
-    const classes = useStyles();
+const ExerciseList = () => {
+
     return (
         <AppContext.Consumer>
             {context => (
-                <List className={classes.root}>
+                <List>
                     {context.exercises.map(item => {
                         return (
                             <ExerciseItem

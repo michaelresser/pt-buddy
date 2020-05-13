@@ -15,7 +15,7 @@ import ExerciseList from './Content/Exercises/ExerciseList/ExerciseList';
 import WorkoutList from './Content/Exercises/ExerciseList/ExerciseList';
 import WorkoutView from './Content/Exercises/ExerciseTable/ExerciseTable'; */
 
-import {AppContext, AppState} from './Context/Context';
+import AppContext, {AppState} from './Context/Context';
 
 export {
     App,
