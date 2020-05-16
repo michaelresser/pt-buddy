@@ -15,6 +15,9 @@ const useStyles = makeStyles({
         flexFlow: 'column',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    title: {
+        fontSize: '2rem'
     }
 })
 
@@ -23,6 +26,7 @@ const Home = () => {
     return (
         <Grid container className={classes.root}>
             <Box className={classes.box}>
+                <h1 className={classes.title}>Welcome to PT Buddy!</h1>
                 <h1>Dashboard</h1>
                 <h3>coming soon</h3>
             </Box>
