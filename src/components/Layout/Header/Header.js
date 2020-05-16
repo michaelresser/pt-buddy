@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { AppContext } from '../../index';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { AppBar, Box, Drawer, Hidden, InputBase, IconButton, List, ListItem, ListItemText, Menu, Toolbar } from '@material-ui/core';
+import { AppBar, Box, Drawer, Hidden, InputBase, IconButton, List, ListItem, ListItemText, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -76,21 +77,22 @@ const Header = () => {
         setMobileMoreMenuState(!mobileMoreMenuState);
     };
 
+
     return (
         <AppContext.Consumer>
             {context => (
-                <div className={classes.root}>
-                    <AppBar position="static">
-                        <Toolbar>                            
-                                <IconButton
-                                    edge='start'
-                                    className={classes.menuButton}
-                                    color='inherit'
-                                    onClick={toggleDrawer}
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                            
+                <div >
+                    <AppBar position="static" className={classes.root}>
+                        <Toolbar>
+                            <IconButton
+                                edge='start'
+                                className={classes.menuButton}
+                                color='inherit'
+                                onClick={toggleDrawer}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+
                             <div className={classes.search}>
                                 <div className={classes.searchIcon}>
                                     <SearchIcon />
@@ -126,25 +128,21 @@ const Header = () => {
                                 </Hidden>
                             </Box>
                         </Toolbar>
-                    </AppBar>  
-                    {/* Main Menu */}                  
-                        <Drawer className={classes.drawer} open={navOpen} onClose={toggleDrawer}>
-                            <List>
-                                <ListItem button onClick={context.changeView}>
-                                    <ListItemText primary={'Home'} />
-                                </ListItem>
-                                {["Exercises", 'Workouts', 'Training Plans'].map((item, index) => (
-                                    <ListItem button key={item} index={index} onClick={(key) => console.log(item)}>
+                    </AppBar>
+
+                    <Drawer className={classes.drawer} open={navOpen} onClose={toggleDrawer}>
+                        <List>
+                            {context.routes.map(({ name, path, component }, index) => (
+                                <ListItem button key={index}>
+                                    <Link to={path} >
                                         <ListItemText
-                                            primary={item}
-                                            index={parseInt(index)}
-                                            onClick={(e) => {
-                                                context.changeMainView(e);
-                                            }} />
-                                    </ListItem>
-                                ))}
-                            </List>
-                        </Drawer>
+                                            primary={name}
+                                        />
+                                    </Link>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Drawer>
                 </div>
             )}
         </AppContext.Consumer>
