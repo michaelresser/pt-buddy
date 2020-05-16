@@ -9,7 +9,7 @@ const useStyles = makeStyles({
         width: '100%',
         background: '#3f51b5',
         color: '#fff',
-        position: 'fixed',
+        alignSelf: 'flex-end',
         bottom: 0
     },
     footer: {        
