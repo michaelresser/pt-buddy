@@ -6,7 +6,8 @@ import {ExerciseItem} from '../../../index';
 const useStyles = makeStyles({
     root:{
         display: 'flex',
-        flexFlow: 'column', 
+        flexFlow: 'row',
+        flexWrap: 'wrap', 
         JustifyContent: 'center',
         alignItems: 'center'
     } 

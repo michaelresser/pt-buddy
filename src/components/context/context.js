@@ -41,7 +41,7 @@ export const AppState = {
             Categories: ["Endurance", "Core", "Total Body"],
             Level: "Intermediate",
             Position: "Prone",
-            image: 'public/images/exercises/barbell-incline-chest-press.jpg'
+            image: './images/exercises/barbell-incline-chest-press.jpg'
         },
         {
             id: uuid(),
@@ -51,7 +51,7 @@ export const AppState = {
             Categories: ["Power Endurance", "Total Body"],
             Level: "Advanced",
             Position: "Standing",
-            image: 'public/images/exercises/barbell-incline-chest-press.jpg'
+            image: './images/exercises/upward-dog.jpg'
         },
         {
             id: uuid(),
@@ -61,7 +61,7 @@ export const AppState = {
             Categories: ["Endurance", "Total Body"],
             Level: "Intermediate",
             Position: "Standing",
-            image: 'public/images/exercises/resistance-band-squatjpg.jpg'
+            image: './images/exercises/resistance-band-squatjpg.jpg'
         },
     ],
     workouts: [

@@ -7,9 +7,9 @@ import AppContext from '../../../Context/Context';
 
 const useStyles = makeStyles({
     root: {
-        minHeight: '200px',
-        height: '150px',
-        width: '300px',
+        position: 'relative',
+        
+        width: '350px',
         backgroundColor: '#393b40',
         margin: '.5em',
         display: 'flex',
@@ -18,12 +18,12 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     media: {
-        width: '100%',
-        height: '100%',
+        height: '175px',        
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
     },
     title: {
-        position: 'relative',
-        top: '50%',
+        padding: '.5em 0',
         textAlign: 'center',
         color: 'white'
     },
@@ -37,19 +37,21 @@ const ExerciseItem = (props) => {
 
     return (
         <AppContext.Consumer>
-            {context => (                
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                className={classes.media}
-                                component='img'
-                                src={props.exercise.image}
-                                title={props.exercise.name}
-                            />
-                            <Typography variant='h6' className={classes.title}>{props.exercise.name}</Typography>
-                        </CardActionArea>
-                    </Card>
- 
+            {context => (
+                <Card className={classes.root}>                 
+                    <CardActionArea>
+                        <CardMedia
+                            className={classes.media}
+                            component='img'
+                            src={props.exercise.image}
+                            title={props.exercise.name}
+                        />
+                        <Typography variant='h6' className={classes.title}>
+                            {props.exercise.name}
+                        </Typography>
+                    </CardActionArea>
+                </Card>
+
                 /*  <ExpansionPanel>
                      <ExpansionPanelSummary
                          expandIcon={<ExpandMoreIcon />}

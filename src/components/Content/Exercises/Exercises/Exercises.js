@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
     addNewExBtn: {     
         position: "fixed",
-        bottom: '10%',
+        bottom: '0',
         right: '0',
         margin: '1em',
         padding: '1em',        
