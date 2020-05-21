@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fab, Grid, Modal } from '@material-ui/core';
+import { Button, Fab, Grid, Modal } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import { ExerciseList } from '../../../index';
@@ -8,17 +8,26 @@ import AppContext from '../../../Context/Context';
 
 const useStyles = makeStyles({
     root: {
-        position: 'relative',
-        height: '100%'
+        width: '100%',
+        display: 'flex',
+        flexFlow: 'column',
+        justifyContent: 'space-between'
     },
-    fabAdd: {
-        position: 'absolute',
-        bottom: '1em',
+    addNewExBtn: {     
+        position: "fixed",
+        bottom: '10%',
         right: '0',
-        backgroundColor: 'green',
+        margin: '1em',
+        padding: '1em',        
+        backgroundColor: '#ffcc00',
+        boxShadow: '0px 2px 1px 0px #999',
         '&:hover': {
-            backgroundColor: 'lightGreen'
+            backgroundColor: '#ffdd00',
+            boxShadow: '0px 2px 2px 2px #999'
         },
+        "&:active": {
+            backgroundColor: '#ffea00'
+        }
     },
     modalBody: {
         color: 'white',
@@ -37,16 +46,15 @@ const Exercises = () => {
     const handleCloseModal = () => {
         setOpen(false);
     }
-    
+
     return (
         <AppContext.Consumer>
             {context => (
                 <Grid container className={classes.root}>
                     <ExerciseList />
-                    <Fab
-                        color="primary"
+                    <Fab                        
                         aria-label="add"
-                        className={classes.fabAdd}
+                        className={classes.addNewExBtn}
                         onClick={handleOpenModal}
                     >
                         <AddIcon />

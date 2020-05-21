@@ -1,9 +1,8 @@
-// Extracting context to separate file as needed
 import React from "react";
-// Components
-import { Home, Exercises, Workouts, TrainingPlans } from '../index';
-//modules
 import { v4 as uuid } from "uuid";
+import { Home, Exercises, Workouts, Programs } from '../index';
+
+
 
 export const AppState = {
     routes: [
@@ -11,21 +10,25 @@ export const AppState = {
             name: "Home",
             path: "/",
             component: Home,
+
         },
         {
             name: "Exercises",
             path: "/Exercises",
             component: Exercises,
+
         },
         {
             name: "Workouts",
             path: "/Workouts",
             component: Workouts,
+
         },
         {
-            name: "Training Plans",
+            name: "Programs",
             path: '/TrainingPlans',
-            component: TrainingPlans,
+            component: Programs,
+
         },
 
     ],
@@ -38,6 +41,7 @@ export const AppState = {
             Categories: ["Endurance", "Core", "Total Body"],
             Level: "Intermediate",
             Position: "Prone",
+            image: 'public/images/exercises/barbell-incline-chest-press.jpg'
         },
         {
             id: uuid(),
@@ -47,6 +51,7 @@ export const AppState = {
             Categories: ["Power Endurance", "Total Body"],
             Level: "Advanced",
             Position: "Standing",
+            image: 'public/images/exercises/barbell-incline-chest-press.jpg'
         },
         {
             id: uuid(),
@@ -56,6 +61,7 @@ export const AppState = {
             Categories: ["Endurance", "Total Body"],
             Level: "Intermediate",
             Position: "Standing",
+            image: 'public/images/exercises/resistance-band-squatjpg.jpg'
         },
     ],
     workouts: [

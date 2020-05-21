@@ -1,20 +1,27 @@
 import React from 'react';
-import { List } from '@material-ui/core';
+import { makeStyles, List } from '@material-ui/core';
 import AppContext from '../../../Context/Context';
 import {ExerciseItem} from '../../../index';
 
-
+const useStyles = makeStyles({
+    root:{
+        display: 'flex',
+        flexFlow: 'column', 
+        JustifyContent: 'center',
+        alignItems: 'center'
+    } 
+})
 const ExerciseList = () => {
-
+    const classes = useStyles();
     return (
         <AppContext.Consumer>
             {context => (
-                <List>
+                <List className={classes.root}>
                     {context.exercises.map(item => {
                         return (
                             <ExerciseItem
                                 key={item.id}
-                                exercise={item}
+                                exercise={item}                                
                             />
                         )
                     })}
