@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, List } from '@material-ui/core';
-import AppContext from '../../../Context/Context';
-import {ExerciseItem} from '../../../index';
+import AppContext from '../../Context/Context';
+import {ExerciseItem} from '../../index';
 
 const useStyles = makeStyles({
     root:{

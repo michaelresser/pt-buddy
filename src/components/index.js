@@ -5,14 +5,15 @@ import Header from './Layout/Header/Header';
 import Navbar from './Layout/Navbar/Navbar';
 import Footer from './Layout/Footer/Footer';
 
-import ViewPanel from './Layout/Views/ViewPanel/ViewPanel';
+import ViewPanel from './Layout/ViewPanel/ViewPanel';
 // Home Section Components
 import Home from './Content/Home/Home';
 // Exercises Section Components
 
-import Exercises from './Content/Exercises/Exercises/Exercises';
-import ExerciseItem from './Content/Exercises/ExerciseItem/ExerciseItem';
-import ExerciseList from './Content/Exercises/ExerciseList/ExerciseList';
+import Exercises from './Content/Exercises/Exercises';
+import ExerciseItem from './Content/Exercises/ExerciseItem';
+import ExerciseList from './Content/Exercises/ExerciseList';
+import ExerciseFilterBar from './Content/Exercises/ExerciseFilterBar';
 
 /* Workouts Section Components */
 import Workouts from './Content/Workouts/Workouts/Workouts';
@@ -34,6 +35,7 @@ export {
     Exercises,
     ExerciseItem,
     ExerciseList,
+    ExerciseFilterBar,
     Workouts,
     Programs,
     Footer
