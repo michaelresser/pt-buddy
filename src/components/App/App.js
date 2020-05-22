@@ -1,7 +1,7 @@
 // Modules
 import React from "react";
 // Components
-import { Header, ViewPanel, Footer } from "../../components/index.js";
+import { Header, ViewPanel, Navbar } from "../../components/index.js";
 // Context
 import AppContext, { AppState } from "../Context/Context";
 // MaterialUI
@@ -30,7 +30,6 @@ const App = () => {
       minHeight: '100vh',
       display: 'flex',
       flexFlow: 'column',
-      
     }
   })
   const classes = useStyles();
@@ -40,9 +39,9 @@ const App = () => {
       <CssBaseline />
       <AppContext.Provider value={state}>
         <Grid className={classes.root}>
-          <Header />
-          <ViewPanel flexGrow={1}/>
-          <Footer />
+          <Header position="fixed" />
+          <Navbar/>
+          <ViewPanel/>          
         </Grid>
       </AppContext.Provider>
     </div>

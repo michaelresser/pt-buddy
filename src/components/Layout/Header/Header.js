@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { AppContext } from '../../index';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { AppBar, Box, Drawer, Hidden, InputBase, IconButton, List, ListItem, ListItemText, Toolbar } from '@material-ui/core';
+import { AppBar, Box, Drawer, Hidden, InputBase, IconButton, List, ListItem, ListItemText, Menu, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 
 
@@ -23,9 +25,6 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         width: '250px'
     },
-    title: {
-        flexGrow: 1
-    },
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(3),
-            width: '80%',
+            width: '100%',
         },
     },
     searchIcon: {
@@ -63,26 +62,51 @@ const useStyles = makeStyles((theme) => ({
             width: '20ch',
         },
     },
+    appBarMenu: {
+        flexGrow: 1,
+        display: 'flex',
+        flex: 'row',
+        flexWrap: 'nowrap'
+    }
 }));
+
+
 
 
 const Header = () => {
     const classes = useStyles();
     const [navOpen, setNavOpen] = React.useState(false);
-    const [mobileMoreMenuState, setMobileMoreMenuState] = React.useState(false);
+    const [mobileMoreMenuOpen, setMobileMoreMenuOpen] = React.useState(null);
     const toggleDrawer = () => (
         setNavOpen(!navOpen)
     );
-    const handleMobileMoreMenu = () => {
-        setMobileMoreMenuState(!mobileMoreMenuState);
+    const toggleMobileMoreMenu = (event) => {
+        mobileMoreMenuOpen ? setMobileMoreMenuOpen(null) : setMobileMoreMenuOpen(event.currentTarget);
     };
-
+    const mobileMoreMenu = (
+        <Menu
+            open={Boolean(mobileMoreMenuOpen)}
+            anchorEl={mobileMoreMenuOpen}
+            keepMounted
+            onClose={toggleMobileMoreMenu}>
+            <IconButton
+                color="inherit">
+                <AccountCircle />
+            </IconButton>
+            <IconButton href='https://github.com/michaelresser/pt-buddy' color={'inherit'} target='_blank' >
+                <GitHubIcon />
+            </IconButton>
+            <IconButton href='https://linkedin.com/in/michaelresser' color={'inherit'} target='_blank' >
+                <LinkedInIcon />
+            </IconButton>
+        </Menu>
+    )
 
     return (
         <AppContext.Consumer>
             {context => (
                 <div >
-                    <AppBar position="static" className={classes.root}>
+                    <AppBar className={classes.root}>
                         <Toolbar>
                             <IconButton
                                 edge='start'
@@ -107,24 +131,31 @@ const Header = () => {
                                 />
                             </div>
                             <div className={classes.grow} />
-                            <Box>
+                            <Box className={classes.appBarMenu}>
                                 <Hidden xsDown>
-                                    <IconButton
-                                        edge="end"
-                                        // onClick={handleProfileMenuOpen}
-                                        color="inherit"
-                                    >
+                                    <IconButton                                       
+                                        color="inherit" >
                                         <AccountCircle />
                                     </IconButton>
-                                    {/* moreMenu - should contain  */}
+                                    <IconButton 
+                                        href='https://github.com/michaelresser/pt-buddy' color={'inherit'} 
+                                        target='_blank' >
+                                        <GitHubIcon />
+                                    </IconButton>
+                                    <IconButton 
+                                        href='https://linkedin.com/in/michaelresser' 
+                                        color={'inherit'} 
+                                        target='_blank' >
+                                        <LinkedInIcon />
+                                    </IconButton>
                                 </Hidden>
                                 <Hidden smUp>
                                     <IconButton
-                                        onClick={handleMobileMoreMenu}
+                                        onClick={toggleMobileMoreMenu}
                                         color="inherit">
                                         <MoreIcon />
                                     </IconButton>
-                                    {/* mobileMoreMenu */}
+                                    {mobileMoreMenu}
                                 </Hidden>
                             </Box>
                         </Toolbar>

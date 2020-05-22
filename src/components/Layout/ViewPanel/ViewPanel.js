@@ -2,15 +2,18 @@ import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import AppContext from '../../../Context/Context';
-import { Home, Exercises, Workouts, TrainingPlans } from '../../../index';
+import AppContext from '../../Context/Context';
+import { Home, Exercises, Footer, Workouts, Programs } from '../../index';
 
 
 const useStyles = makeStyles({
     root: {
+        width: '100vw',
         display: 'flex',
         flexGrow: 1,
-        position: 'relative'
+        position: 'relative',
+        paddingTop: '110px',
+
     }
 })
 
@@ -20,11 +23,9 @@ const ViewPanel = () => {
 
     return (
         <AppContext.Consumer>
-            {context => (
-                <Grid item className={classes.root}>
-                    <div  >
+            {context => (                
+                    <Grid container className={classes.root}>
                         <Switch>
-
                             {/* Mapping routes from context.routes is returning nothing, because the component value is undefined, even though the OG Components are being imported properly into the context.js file. 
                               
                             
@@ -43,10 +44,10 @@ const ViewPanel = () => {
                             <Route exact path={"/"} component={Home} />
                             <Route exact path={"/Exercises"} component={Exercises} />
                             <Route exact path={"/Workouts"} component={Workouts} />
-                            <Route exact path={"/TrainingPlans"} component={TrainingPlans} />
+                            <Route exact path={"/TrainingPlans"} component={Programs} />
                         </Switch>
-                    </div>
-                </Grid>
+                        <Footer />
+                    </Grid>                                
             )}
         </AppContext.Consumer>)
 };

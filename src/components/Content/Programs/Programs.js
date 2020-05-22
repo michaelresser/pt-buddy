@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     }
 })
 
-const TrainingPlans = () => {
+const Programs = () => {
     const classes = useStyles();
     return (
         <Grid container className={classes.root}>
@@ -31,4 +31,4 @@ const TrainingPlans = () => {
 }
 
 
-export default TrainingPlans;
+export default Programs;

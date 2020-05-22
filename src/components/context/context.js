@@ -1,9 +1,8 @@
-// Extracting context to separate file as needed
 import React from "react";
-// Components
-import { Home, Exercises, Workouts, TrainingPlans } from '../index';
-//modules
 import { v4 as uuid } from "uuid";
+import { Home, Exercises, Workouts, Programs } from '../index';
+
+
 
 export const AppState = {
     routes: [
@@ -11,59 +10,71 @@ export const AppState = {
             name: "Home",
             path: "/",
             component: Home,
+
         },
         {
             name: "Exercises",
             path: "/Exercises",
             component: Exercises,
+
         },
         {
             name: "Workouts",
             path: "/Workouts",
             component: Workouts,
+
         },
         {
-            name: "Training Plans",
+            name: "Programs",
             path: '/TrainingPlans',
-            component: TrainingPlans,
+            component: Programs,
+
         },
 
     ],
     exercises: [
         {
             id: uuid(),
-            name: "Narrow Pushup",
-            muscles: ["Triceps", "Chest", "Core"],
-            Gear: "Body",
-            Categories: ["Endurance", "Core", "Total Body"],
-            Level: "Intermediate",
-            Position: "Prone",
+            name: "Barbell Incline Chest Press",
+            categories: ['Sports Performance, PowerLifting'],
+            muscles: ["Triceps", "Chest", "Shoulders"],
+            gear: "Barbell",
+            movements: ["Upper Body Push"],
+            level: "Intermediate",
+            stance: "Supine",
+            image: './images/exercises/barbell-incline-chest-press.jpg'
         },
         {
             id: uuid(),
-            name: "Alternating 1-Arm KettleBell Swings",
-            muscles: ["Shoulders", "Back", "Core", "Hips"],
-            Gear: "Kettlebell",
-            Categories: ["Power Endurance", "Total Body"],
-            Level: "Advanced",
-            Position: "Standing",
+            name: "Upward Dog Stretch",
+            categories: ['Sports Performance, PowerLifting'],
+            muscles: ["Neck", "Chest", "Core", "LPHC"],
+            gear: "BodyWeight",            
+            movements: ["upper Body Push"],
+            level: "Beginner",
+            stance: "Prone",
+            image: './images/exercises/upward-dog-stretch.jpg'
         },
         {
             id: uuid(),
-            name: "Sandbag Front Squat (Bearhug Hold)",
-            muscles: ["Biceps", "UpperBack", "Hips", "Legs"],
-            Gear: "Sandbag",
-            Categories: ["Endurance", "Total Body"],
-            Level: "Intermediate",
-            Position: "Standing",
+            name: "Mini-Band Squat",
+            categories: ['Sports Performance, PowerLifting'],
+            muscles: ["LPHC", "Legs", "Core"],
+            gear: "Mini-Band",
+            movement: ['Lower Body Push', "Lower Body Pull"],            
+            level: "Beginner",
+            stance: "Standing",
+            image: './images/exercises/resistance-band-squatjpg.jpg'
         },
     ],
     workouts: [
         {
             id: uuid(),
             name: "Workout 1",
-            workout: [
-                { exercise: "pushups", sets: 3, reps: 10 },
+            workout: [ 
+                {   exercise: /* exerciseId */ "JumpRope",
+                    sets: 3, 
+                    reps: 10 },
                 { exercise: "kettlebell swings", sets: 3, reps: 10 },
                 { exercise: "Boxing", sets: 3, time: "3 min" },
             ],
