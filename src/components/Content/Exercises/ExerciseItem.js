@@ -3,7 +3,7 @@ import { makeStyles, Button, Box, Card, CardActionArea, CardMedia, Chip, Typogra
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import AppContext from '../../../Context/Context';
+import AppContext from '../../Context/Context';
 
 const useStyles = makeStyles({
     root: {

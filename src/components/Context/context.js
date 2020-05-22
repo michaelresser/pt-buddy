@@ -36,9 +36,10 @@ export const AppState = {
         {
             id: uuid(),
             name: "Barbell Incline Chest Press",
+            categories: ['Sports Performance, PowerLifting'],
             muscles: ["Triceps", "Chest", "Shoulders"],
             gear: "Barbell",
-            movement: "upper Body Push",
+            movements: ["Upper Body Push"],
             level: "Intermediate",
             stance: "Supine",
             image: './images/exercises/barbell-incline-chest-press.jpg'
@@ -46,17 +47,20 @@ export const AppState = {
         {
             id: uuid(),
             name: "Upward Dog Stretch",
-            muscles: ["Neck", "Chest", , "Core", "Hips"],
+            categories: ['Sports Performance, PowerLifting'],
+            muscles: ["Neck", "Chest", "Core", "LPHC"],
             gear: "BodyWeight",            
+            movements: ["upper Body Push"],
             level: "Beginner",
             stance: "Prone",
             image: './images/exercises/upward-dog-stretch.jpg'
         },
         {
             id: uuid(),
-            name: "Small Band Squat",
-            muscles: ["Hips", "Legs", "Core"],
-            gear: "Small Band",
+            name: "Mini-Band Squat",
+            categories: ['Sports Performance, PowerLifting'],
+            muscles: ["LPHC", "Legs", "Core"],
+            gear: "Mini-Band",
             movement: ['Lower Body Push', "Lower Body Pull"],            
             level: "Beginner",
             stance: "Standing",
@@ -67,8 +71,10 @@ export const AppState = {
         {
             id: uuid(),
             name: "Workout 1",
-            workout: [
-                { exercise: "pushups", sets: 3, reps: 10 },
+            workout: [ 
+                {   exercise: /* exerciseId */ "JumpRope",
+                    sets: 3, 
+                    reps: 10 },
                 { exercise: "kettlebell swings", sets: 3, reps: 10 },
                 { exercise: "Boxing", sets: 3, time: "3 min" },
             ],

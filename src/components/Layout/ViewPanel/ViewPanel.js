@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import AppContext from '../../../Context/Context';
-import { Home, Exercises, Footer, Workouts, Programs } from '../../../index';
+import AppContext from '../../Context/Context';
+import { Home, Exercises, Footer, Workouts, Programs } from '../../index';
 
 
 const useStyles = makeStyles({

@@ -2,8 +2,8 @@ import React from 'react'
 import { Button, Fab, Grid, Modal, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
-import { ExerciseList } from '../../../index';
-import AppContext from '../../../Context/Context';
+import { ExerciseList, ExerciseFilterBar } from '../../index';
+import AppContext from '../../Context/Context';
 
 
 const useStyles = makeStyles({
@@ -63,6 +63,7 @@ const Exercises = () => {
         <AppContext.Consumer>
             {context => (
                 <Grid container className={classes.root}>
+                    <ExerciseFilterBar/>
                     <ExerciseList />
                     <Fab
                         aria-label="add"
