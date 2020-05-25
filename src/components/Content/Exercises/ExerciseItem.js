@@ -1,8 +1,5 @@
 import React from 'react';
-import { makeStyles, Button, Box, Card, CardActionArea, CardMedia, Chip, Typography, Divider, ExpansionPanel, ExpansionPanelActions, ExpansionPanelDetails, ExpansionPanelSummary } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import { makeStyles, Card, CardActionArea, CardMedia, Typography } from '@material-ui/core';
 import AppContext from '../../Context/Context';
 
 const useStyles = makeStyles({
@@ -33,7 +30,7 @@ const useStyles = makeStyles({
 
 const ExerciseItem = (props) => {
     const classes = useStyles(props);
-    console.log(props.exercise.image, typeof props.exercise.image);
+   
 
     return (
         <AppContext.Consumer>
