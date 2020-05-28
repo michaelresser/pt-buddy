@@ -64,12 +64,11 @@ const ExerciseFilterBar = (props) => {
                 <Container>
                     <FormGroup className={classes.filterList}>
                         <TextField
-                            name="categories"   
+                            name="categories"
                             select
                             label="Categories"
-                            value={props.filterSettings.categories}                           
-                            onChange={props.setFilters}
-                            helperText="Select a category"                            
+                            onChange={(e) => { props.filterExercises(e.target.name, e.target.value) }}
+                            helperText="Select a category"
                         >
                             {filterOptions.categories.map((option, index) => (
                                 <MenuItem key={index} value={option}>
