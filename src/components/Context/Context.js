@@ -2,8 +2,6 @@ import React from "react";
 import { v4 as uuid } from "uuid";
 import { Home, Exercises, Workouts, Programs } from '../index';
 
-
-
 export const AppState = {
     routes: [
         {
@@ -36,7 +34,7 @@ export const AppState = {
         {
             id: uuid(),
             name: "Barbell Incline Chest Press",
-            categories: ['Sports Performance, PowerLifting'],
+            categories: ['Sports Performance', 'PowerLifting'],
             muscles: ["Triceps", "Chest", "Shoulders"],
             gear: "Barbell",
             movements: ["Upper Body Push"],
@@ -47,7 +45,7 @@ export const AppState = {
         {
             id: uuid(),
             name: "Upward Dog Stretch",
-            categories: ['Sports Performance, PowerLifting'],
+            categories: ['Flexibility', 'Yoga'],
             muscles: ["Neck", "Chest", "Core", "LPHC"],
             gear: "BodyWeight",            
             movements: ["upper Body Push"],
@@ -58,7 +56,7 @@ export const AppState = {
         {
             id: uuid(),
             name: "Mini-Band Squat",
-            categories: ['Sports Performance, PowerLifting'],
+            categories: ['Sports Performance', 'Rehab'],
             muscles: ["LPHC", "Legs", "Core"],
             gear: "Mini-Band",
             movement: ['Lower Body Push', "Lower Body Pull"],            

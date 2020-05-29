@@ -1,6 +1,6 @@
 import React from 'react';
 import AppContext from '../../Context/Context';
-import { List, ListItem, makeStyles } from '@material-ui/core';
+import { List, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
@@ -64,7 +64,7 @@ const Navbar = (props) => {
                 {context => (
                     <List className={classes.list}>
                         {context.routes.map(({ name, path, component, icon }, index) => (
-                            <Link to={path} className={classes.listItem}  button key={index}>
+                            <Link to={path} className={classes.listItem} key={index}>
                                     {getMenuIcon(name)}                                
                             </Link>
                         ))}

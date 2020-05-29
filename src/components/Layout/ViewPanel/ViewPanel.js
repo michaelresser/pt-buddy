@@ -23,10 +23,10 @@ const ViewPanel = () => {
 
     return (
         <AppContext.Consumer>
-            {context => (                
-                    <Grid container className={classes.root}>
-                        <Switch>
-                            {/* Mapping routes from context.routes is returning nothing, because the component value is undefined, even though the OG Components are being imported properly into the context.js file. 
+            {context => (
+                <Grid container className={classes.root}>
+                    <Switch>
+                        {/* Mapping routes from context.routes is returning nothing, because the component value is undefined, even though the OG Components are being imported properly into the context.js file. 
                               
                             
                             {context.routes.map( (route, index) => {
@@ -41,13 +41,13 @@ const ViewPanel = () => {
                                     </Route >
                                 )
                             })} */}
-                            <Route exact path={"/"} component={Home} />
-                            <Route exact path={"/Exercises"} component={Exercises} />
-                            <Route exact path={"/Workouts"} component={Workouts} />
-                            <Route exact path={"/TrainingPlans"} component={Programs} />
-                        </Switch>
-                        <Footer />
-                    </Grid>                                
+                        <Route exact path={"/"} component={Home} />
+                        <Route exact path={"/Exercises"} component={(props) => <Exercises {...props} exercises={context.exercises} />} />
+                        <Route exact path={"/Workouts"} component={Workouts} />
+                        <Route exact path={"/TrainingPlans"} component={Programs} />
+                    </Switch>
+                    <Footer />
+                </Grid>
             )}
         </AppContext.Consumer>)
 };

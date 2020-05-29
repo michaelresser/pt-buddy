@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
-import { makeStyles, Button, Container, Drawer, FormGroup, FormControl, TextField, MenuItem } from '@material-ui/core'
+import { makeStyles, Button, Container, Divider, Drawer, FormGroup, TextField, MenuItem, Typography } from '@material-ui/core'
 import FilterListIcon from '@material-ui/icons/FilterList';
 import CloseIcon from '@material-ui/icons/Close';
+import CheckIcon from '@material-ui/icons/Check';
 
-const filters = {
-    categories: ['Sports Performance, PowerLifting', 'Flexibility', 'Sport-Specific',],
-    muscles: ["Triceps", "Chest", "Shoulders", "Neck", "Chest", "Core", "LPHC"],
-    gear: ['Barbell', "Body Only", 'Kettlebell', 'Mini-Band'],
-    movements: ['Upper Body Push', 'Upper Body Pull', 'Core', 'Lower Body Pull', 'Lower Body Push', 'Compound Move'],
-    level: ["Beginner", "Intermediate", 'Advanced'],
-    stance: ['Standing', "Prone", 'Seated', "Supine"],
-}
 const useStyles = makeStyles({
     root: {
         display: 'flex',
@@ -19,65 +12,87 @@ const useStyles = makeStyles({
     searchBox: {
         flexGrow: 1
     },
-    drawer:{
-        padding: '.5em'
-    },
     filterBtn: {
         alignSelf: 'flex-end'
     },
-    filterList: {
-        width: '50vw'
-
+    drawer: {
+        padding: '.5em',
+        height: 'calc(100% - 107px)',
+        top: 107
+    },
+    filterActions: {
+        display: 'flex',
+        justifyContent: 'space-between'
     }
 })
 
+const filterOptions = {
+    categories: ['All', 'Sports Performance', 'PowerLifting', 'Flexibility', 'Sport-Specific',],
+    muscles: ['All', "Triceps", "Chest", "Shoulders", "Neck", "Chest", "Core", "LPHC"],
+    gear: ['All', 'Barbell', "Body Only", 'Kettlebell', 'Mini-Band'],
+    movements: ['All', 'Upper Body Push', 'Upper Body Pull', 'Core', 'Lower Body Pull', 'Lower Body Push', 'Compound Move'],
+    level: ['All', "Beginner", "Intermediate", 'Advanced'],
+    stance: ['All', 'Standing', "Prone", 'Seated', "Supine"],
+}
 
-const ExerciseFilterBar = () => {
+const ExerciseFilterBar = (props) => {
     const classes = useStyles();
-
-    const [category, setCategory] = useState();
     const [open, setOpen] = useState(false);
-    const handleCategoryChange = (event) => {
-        setCategory(event.target.value);
-    };
-    const toggleDrawer = () => {
+    const [filters, setFilters] = useState(props.filters);
+    const toggleFilterDrawer = () => {
         setOpen(!open)
     };
-
     return (
         <Container>
             <div className={classes.root}>
                 <form className={classes.searchBox}>
                     <TextField fullWidth />
                 </form>
-                <Button className={classes.filterBtn} onClick={toggleDrawer}>
+                <Button className={classes.filterBtn} onClick={toggleFilterDrawer}>
                     <FilterListIcon />
                 </Button>
             </div>
-            <Drawer anchor='right' open={open} onClose={toggleDrawer} className={classes.drawer} >
-                <Container>
-                    <Button className={classes.filterBtn} onClick={toggleDrawer}>
+            <Drawer anchor='bottom' open={open} className={classes.drawer}>
+                <Container className={classes.filterActions}>
+                   
+                    <Button className={classes.saveBtn} onClick={toggleFilterDrawer}>
                         <CloseIcon />
                     </Button>
+                    <Typography variant='h6'>Filters</Typography>
+                    <Button className={classes.filterBtn} onClick={props.setFilters}>
+                        <CheckIcon />
+                    </Button>
+
                 </Container>
+                <Divider/>
                 <Container>
-                    <FormGroup className={classes.filterList}>
-                        <FormControl>
-                            <TextField
-                                id="categories"
-                                select
-                                label="Categories"
-                                value={category}
-                                onChange={handleCategoryChange}
-                                helperText="Select a category"
-                            >
-                                {filters.categories.map((option, index) => (
-                                    <MenuItem key={index} value={option}>
-                                        {option}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </FormControl>
+                    <FormGroup>
+                        <TextField
+                            select
+                            name="categories"                            
+                            label="Categories"
+                            onChange={(e) => { props.filterExercises(e.target.name, e.target.value) }}                            
+                            helperText="Select a category"
+                        >
+                            {filterOptions.categories.map((option, index) => (
+                                <MenuItem key={index} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                        <TextField
+                            select
+                            name="muscles"                            
+                            label="Body Parts"
+                            onChange={(e) => { props.filterExercises(e.target.name, e.target.value) }}                            
+                            helperText="Select Muscle Groups"
+                        >
+                            {filterOptions.muscles.map((option, index) => (
+                                <MenuItem key={index} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </TextField>
                     </FormGroup>
                 </Container>
             </Drawer>
