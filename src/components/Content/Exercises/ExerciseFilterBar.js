@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { makeStyles, Button, Container, Drawer, FormGroup, TextField, MenuItem } from '@material-ui/core'
+import { makeStyles, Button, Container, Divider, Drawer, FormGroup, TextField, MenuItem, Typography } from '@material-ui/core'
 import FilterListIcon from '@material-ui/icons/FilterList';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
@@ -12,15 +12,17 @@ const useStyles = makeStyles({
     searchBox: {
         flexGrow: 1
     },
-    drawer: {
-        padding: '.5em'
-    },
     filterBtn: {
         alignSelf: 'flex-end'
     },
-    filterList: {
-        width: '50vw'
-
+    drawer: {
+        padding: '.5em',
+        height: 'calc(100% - 107px)',
+        top: 107
+    },
+    filterActions: {
+        display: 'flex',
+        justifyContent: 'space-between'
     }
 })
 
@@ -36,10 +38,10 @@ const filterOptions = {
 const ExerciseFilterBar = (props) => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
+    const [filters, setFilters] = useState(props.filters);
     const toggleFilterDrawer = () => {
         setOpen(!open)
     };
-
     return (
         <Container>
             <div className={classes.root}>
@@ -50,27 +52,42 @@ const ExerciseFilterBar = (props) => {
                     <FilterListIcon />
                 </Button>
             </div>
-            <Drawer anchor='right' open={open} className={classes.drawer} >
-                <Container>
+            <Drawer anchor='bottom' open={open} className={classes.drawer}>
+                <Container className={classes.filterActions}>
+                   
+                    <Button className={classes.saveBtn} onClick={toggleFilterDrawer}>
+                        <CloseIcon />
+                    </Button>
+                    <Typography variant='h6'>Filters</Typography>
                     <Button className={classes.filterBtn} onClick={props.setFilters}>
                         <CheckIcon />
                     </Button>
 
-                    <Button className={classes.filterBtn} onClick={toggleFilterDrawer}>
-                        <CloseIcon />
-                    </Button>
-
                 </Container>
+                <Divider/>
                 <Container>
-                    <FormGroup className={classes.filterList}>
+                    <FormGroup>
                         <TextField
-                            name="categories"
                             select
+                            name="categories"                            
                             label="Categories"
-                            onChange={(e) => { props.filterExercises(e.target.name, e.target.value) }}
+                            onChange={(e) => { props.filterExercises(e.target.name, e.target.value) }}                            
                             helperText="Select a category"
                         >
                             {filterOptions.categories.map((option, index) => (
+                                <MenuItem key={index} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                        <TextField
+                            select
+                            name="muscles"                            
+                            label="Body Parts"
+                            onChange={(e) => { props.filterExercises(e.target.name, e.target.value) }}                            
+                            helperText="Select Muscle Groups"
+                        >
+                            {filterOptions.muscles.map((option, index) => (
                                 <MenuItem key={index} value={option}>
                                     {option}
                                 </MenuItem>

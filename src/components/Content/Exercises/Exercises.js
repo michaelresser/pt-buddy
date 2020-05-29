@@ -55,89 +55,96 @@ class Exercises extends React.Component {
         this.state = {
             open: false,
             exercises: props.exercises,
-
+            filters: ['All']
         };
     }
     toggleModal = () => {
         this.setState({ open: !this.state.open }, () => console.log(this.state.open))
     };
+    setFilters = (settings) => {
+        settings === undefined ?
+            this.setState({ filters: [] }) :
+            this.setState({
+                filters: settings
+            })
+    };
     filterExercises = (name, value) => {
         const filterName = name;
         const filterValue = value;
-        filterValue === 'All' ? this.setState({exercises: this.props.exercises}) : 
-        this.setState({
-            exercises: this.state.exercises.filter((item) => {
-                console.log(item.filterName);
-                return item[filterName].includes(filterValue);       
-        })
-    })
-}
+        console.log(name, value);
+        filterValue === 'All' || undefined ? this.setState({ exercises: this.props.exercises }) :
+            this.setState({
+                exercises: this.props.exercises.filter((item) => {                    
+                    return item[filterName].includes(filterValue);
+                })
+            })
+    }
 
-render() {
-    return (
-        <AppContext.Consumer>
-            {context => (
-                <Grid container style={styles.root}>
-                    <ExerciseFilterBar filterExercises={this.filterExercises} />
-                    <ExerciseList list={this.state.exercises} />
-                    <Fab
-                        aria-label="add"
-                        style={styles.addNewExBtn}
-                        onClick={this.toggleModal}
-                    >
-                        <AddIcon />
-                    </Fab>
-                    <Modal
-                        style={styles.modalBody}
-                        open={this.state.open}
-                        onClose={this.toggleModal}
-                    >
-                        <form style={styles.newExerciseForm}>
-                            <Typography variant='h6' color="primary">Add a New Exercise</Typography>
-                            <TextField
-                                id='name'
-                                label='Exercise Name'
-                                helperText='Name your new exercise'
-                                fullWidth
-                            />
-                            <TextField
-                                id='muscles'
-                                label='Muscle Groups Used'
-                                helperText='Select muscle groups (max 3)'
-                                fullWidth
-                            />
-                            <TextField
-                                id='gear'
-                                label='Muscle Groups Used'
-                                helperText='Select primarymuscle groups (max 3)'
-                                fullWidth
-                            />
-                            <TextField
-                                id='movement'
-                                label='Movement Pattern'
-                                helperText='Select the primary movement pattern for this skill'
-                                fullWidth
-                            />
-                            <TextField
-                                id='level'
-                                label='Skill Level'
-                                helperText='Choose a difficulty'
-                                fullWidth
-                            />
-                            <TextField
-                                id='stance'
-                                label='Stance'
-                                helperText='Choose the Body position for tthis exercise'
-                                fullWidth
-                            />
-                            <Button>Add New Exercise</Button>
-                        </form>
-                    </Modal>
-                </Grid>
-            )}
-        </AppContext.Consumer>
-    )
-}
+    render() {
+        return (
+            <AppContext.Consumer>
+                {context => (
+                    <Grid container style={styles.root}>
+                        <ExerciseFilterBar filterExercises={this.filterExercises} filters={this.state.filters}/>
+                        <ExerciseList list={this.state.exercises} />
+                        <Fab
+                            aria-label="add"
+                            style={styles.addNewExBtn}
+                            onClick={this.toggleModal}
+                        >
+                            <AddIcon />
+                        </Fab>
+                        <Modal
+                            style={styles.modalBody}
+                            open={this.state.open}
+                            onClose={this.toggleModal}
+                        >
+                            <form style={styles.newExerciseForm}>
+                                <Typography variant='h6' color="primary">Add a New Exercise</Typography>
+                                <TextField
+                                    id='name'
+                                    label='Exercise Name'
+                                    helperText='Name your new exercise'
+                                    fullWidth
+                                />
+                                <TextField
+                                    id='muscles'
+                                    label='Muscle Groups Used'
+                                    helperText='Select muscle groups (max 3)'
+                                    fullWidth
+                                />
+                                <TextField
+                                    id='gear'
+                                    label='Muscle Groups Used'
+                                    helperText='Select primarymuscle groups (max 3)'
+                                    fullWidth
+                                />
+                                <TextField
+                                    id='movement'
+                                    label='Movement Pattern'
+                                    helperText='Select the primary movement pattern for this skill'
+                                    fullWidth
+                                />
+                                <TextField
+                                    id='level'
+                                    label='Skill Level'
+                                    helperText='Choose a difficulty'
+                                    fullWidth
+                                />
+                                <TextField
+                                    id='stance'
+                                    label='Stance'
+                                    helperText='Choose the Body position for tthis exercise'
+                                    fullWidth
+                                />
+                                <Button>Add New Exercise</Button>
+                            </form>
+                        </Modal>
+                    </Grid>
+                )}
+            </AppContext.Consumer>
+        )
+    }
 }
 export default Exercises;
 
