@@ -2,8 +2,6 @@ import React from "react";
 import { v4 as uuid } from "uuid";
 import { Home, Exercises, Workouts, Programs } from '../index';
 
-
-
 export const AppState = {
     routes: [
         {
@@ -58,7 +56,7 @@ export const AppState = {
         {
             id: uuid(),
             name: "Mini-Band Squat",
-            categories: ['Functional Training', 'Rehab'],
+            categories: ['Sports Performance', 'Rehab'],
             muscles: ["LPHC", "Legs", "Core"],
             gear: "Mini-Band",
             movement: ['Lower Body Push', "Lower Body Pull"],            
